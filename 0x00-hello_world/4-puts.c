@@ -1,5 +1,9 @@
 #include <stdio.h>
-/*My first c programming*/
+/**
+ * main - Entry point
+ *
+ * Return: 0 always success
+ */
 int main(void)
 {
 	puts("\"Programming is like building a multilingual puzzle");
