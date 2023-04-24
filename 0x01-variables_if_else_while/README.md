@@ -1,0 +1,1 @@
+In C, variables are used to store data such as numbers, characters, and strings. A variable has a name, a type, and a value. To declare a variable in C, you need to specify its type and name. If-else statements are used to conditionally execute code in C.
