@@ -16,8 +16,6 @@ int main(void)
 		{
 			if (num1 <  num2)
 			{
-				putchar(',');
-				putchar(' ');
 				putchar(num1 / 10 + 48);
 				putchar(num1 % 10 + 48);
 				putchar(' ');
