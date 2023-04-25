@@ -10,18 +10,17 @@
 
 int main(void)
 {
-	int a, b, c, sum_even;
+	int a = 0, b = 1, c = 0;
+	int sum_even = 0;
 
-	while (b < 4000000)
+	while (c < 4000000)
 	{
-		c = a + b;
-		b = a;
+		c  = a + b;
 		a = b;
+		b = c;
 		if (c % 2 == 0)
-		{
 			sum_even += c;
-		}
 	}
-	printf("%d\n", sum_even);
+	printf("%i\n", sum_even);
 	return (0);
 }
