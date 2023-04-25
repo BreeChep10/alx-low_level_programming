@@ -1,0 +1,1 @@
+ Here I learnt more about c functions and nested functions. I got to apply them in practical exercises. In C, nested loops are loops that are contained within another loop. They are often used when iterating over two-dimensional arrays, matrix multiplication, or when processing complex data structures.
