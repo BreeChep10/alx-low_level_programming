@@ -1,13 +1,6 @@
-#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-
-/**
- * randomPasswordGeneration - Generating a random password.
- * @n: Lenth of the password.
- *
- */
 
 /**
  * main - Generates random valid passwords for the
@@ -56,6 +49,7 @@ int main(void)
 	}
 
 	printf("%s", password);
+	printf("\n");
 
 	return (0);
 }
