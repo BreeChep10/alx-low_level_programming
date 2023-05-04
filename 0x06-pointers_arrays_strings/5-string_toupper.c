@@ -2,7 +2,7 @@
 
 /**
  * string_toupper - Function that converts a string to uppercase.
- * @str: string to be modified.
+ * @s: string to be modified.
  *
  * Return: A pointer to the changed string.
  */
