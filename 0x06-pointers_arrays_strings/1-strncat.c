@@ -4,6 +4,7 @@
  * _strncat - Concatenates two strings.
  * @dest: String to be concatenated upon.
  * @src: Source string to concatenate.
+ * @n: The number of bytes to copied from src.
  *
  * Return: The concatenated string.
  */
