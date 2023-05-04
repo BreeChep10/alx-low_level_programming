@@ -25,9 +25,9 @@ char *rot13(char *str)
 		'F', 'G', 'H', 'I', 'J', 'K',
 		'L', 'M', 'n', 'o', 'p', 'q',
 		'r', 's', 't', 'u', 'v', 'w',
-		'x', 'y', 'z', 'A', 'B', 'C',
-		'D', 'E', 'F', 'G', 'H', 'I',
-		'J', 'K', 'L', 'M'};
+		'x', 'y', 'z', 'a', 'b', 'c',
+		'd', 'e', 'f', 'g', 'h', 'i',
+		'j', 'k', 'l', 'm'};
 
 	for (index = 0; str[index] != '\0'; index++)
 	{
