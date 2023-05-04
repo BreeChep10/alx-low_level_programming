@@ -5,6 +5,7 @@
  * @n1: The string containing the first number to be added.
  * @n2: The string containging the second number added.
  * @r: The buffer to store results.
+ * @size_r: buffer size
  *
  * Return: If r can store the sum - a pointer to the result.
  * If r cannot store the sum - 0.
