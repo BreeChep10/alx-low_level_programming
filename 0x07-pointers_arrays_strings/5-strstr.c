@@ -18,22 +18,19 @@ char *_strstr(char *haystack, char *needle)
 	{
 		return (0);
 	}
-	else
+	for (a = 0; haystack[a] != '\0'; a++)
 	{
-		for (a = 0; haystack[a] != '\0'; a++)
+		for (b = 1; needle[b] != '\0' && haystack[a + b] != '\0'; b++)
 		{
-			for (b = 1; needle[b] != '\0' && haystack[a + b] != '\0'; b++)
+			if (haystack[a + b] != needle[b])
 			{
-				if (haystack[a + b] != needle[b])
-				{
-					break;
-				}
-			}
-			if (needle[b] == '\0')
-			{
-				return (&haystack[a]);
+				break;
 			}
 		}
-		return (NULL);
+		if (needle[b] == '\0')
+		{
+			return (&haystack[a]);
+		}
 	}
+	return (NULL);
 }
