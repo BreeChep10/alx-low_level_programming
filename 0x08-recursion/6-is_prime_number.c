@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _prime_checker: Function that helps check a number if it is prime.
+ * _prime_checker - helper function to check if a number is prime.
  * @n: The number to be checked.
  * @i: The divisor to try.
  *
@@ -34,5 +34,5 @@ int is_prime_number(int n)
 	{
 		return (0);
 	}
-	return (_prime_checker(n ,2));
+	return (_prime_checker(n, 2));
 }
