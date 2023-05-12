@@ -12,9 +12,9 @@ int coin_count(int cents)
 {
 	if (cents <= 0)
 	{
-		printf("0\n");
+		return (0);
 	}
-	if (cents >= 25)
+	else if (cents >= 25)
 	{
 		return (1 + coin_count(cents - 25));
 	}
