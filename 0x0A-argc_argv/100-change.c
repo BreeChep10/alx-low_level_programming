@@ -2,38 +2,6 @@
 #include <stdlib.h>
 
 /**
- * coin_count - function that counts the number of coins in change.
- * @cents: The changeto be gotten from.
- *
- * Return: The number of changes needed.
- */
-
-int coin_count(int cents)
-{
-	if (cents >= 25)
-	{
-		return (1 + coin_count(cents - 25));
-	}
-	else if (cents >= 10)
-	{
-		return (1 + coin_count(cents - 10));
-	}
-	else if (cents >= 5)
-	{
-		return (1 + coin_count(cents - 5));
-	}
-	else if (cents >= 2)
-	{
-		return (1 + coin_count(cents - 2));
-	}
-	else if (cents <= 0)
-	{
-		return (0);
-	}
-	return (1 + coin_count(cents - 1));
-}
-
-/**
  * main - Program that prints the minimum number of coins to
  * make change for an amount of money.
  * @argc: Number of arguements in the array argv.
@@ -44,6 +12,9 @@ int coin_count(int cents)
 int main(int argc, char **argv)
 {
 	int cents;
+	int changes[] = { 25, 10, 5, 2, 1 };
+	int count;
+	int num;
 
 	if (argc - 1 != 1)
 	{
@@ -52,9 +23,22 @@ int main(int argc, char **argv)
 	}
 
 	cents = atoi(argv[1]);
+	count = 0;
 
+	if (cents < 0)
+	{
+		printf("0\n");
+		return (0);
+	}
 
-	printf("%d\n", coin_count(cents));
-
+	for (num = 0; num < 5 && cents >= 0; num++)
+	{
+		while (cents >= changes[num])
+		{
+			count++;
+			cents -= changes[num];
+		}
+	}
+	printf("%d\n", count);
 	return (0);
 }
