@@ -25,6 +25,11 @@ char *_strdup(char *str)
 	}
 	duplicate = malloc(sizeof(char) * (len + 1));
 
+	if (duplicate == NULL)
+	{
+		return (NULL);
+	}
+
 	for (index = 0; index < len; index++)
 	{
 		duplicate[index] = str[index];
