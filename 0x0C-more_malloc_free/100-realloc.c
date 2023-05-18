@@ -39,12 +39,12 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	err = malloc(sizeof(*new_ptr) * new_size);
 	if (err == NULL)
 	{
-		 free(ptr);
-		 return (NULL);
+		free(ptr);
+		return (NULL);
 	}
 	temp = err;
 	for (index = 0; index < old_size && index < new_size; index++)
 		temp[index] = *new_ptr++;
 	free(ptr);
-	return(err);
+	return (err);
 }
