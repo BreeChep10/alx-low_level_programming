@@ -40,7 +40,6 @@ void multiply(char *num1, char *num2)
 	result = malloc((len1 + len2) * sizeof(int));
 	if (result == NULL)
 	{
-		free(result);
 		print_error();
 	}
 	for (i = 0; i < len1 + len2; i++)
@@ -63,6 +62,7 @@ void multiply(char *num1, char *num2)
 	for (; i < len1 + len2; i++)
 		_putchar(result[i] + '0');
 	_putchar('\n');
+	free(result);
 }
 
 /**
