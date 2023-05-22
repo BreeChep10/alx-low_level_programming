@@ -2,6 +2,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+dog_t *new_dog(char *name, float age, char *owner);
+void _memcpy(char *dest, char *src, int len);
+int _strlen(char *str);
+
 /**
  * _strlen - Function that counts the length of a string.
  * @str: The string to counted.
@@ -52,9 +56,10 @@ dog_t *new_dog(char *name, float age, char *owner)
 	int name_len, owner_len;
 
 	dog_t *new_dog = malloc(sizeof(dog_t));
+
 	if (new_dog == NULL)
 		return (NULL);
-	
+
 	name_len = _strlen(name);
 	new_dog->name = malloc((name_len + 1) * sizeof(char));
 	if (new_dog->name == NULL)
