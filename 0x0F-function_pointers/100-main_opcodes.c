@@ -28,11 +28,13 @@ int main(int argc, char *argv[])
 		exit(2);
 	}
 
-	unsigned char *ptr = (unsigned char *)main;
+	char *ptr = (char *)main;
 
 	for (i = 0; i < num_bytes; i++)
 	{
-		printf("%02x ", ptr[i]);
+		printf("%02x ", ptr[i] && 0xFF);
+		if (i != num_bytes - 1)
+			printf(" ");
 	}
 	printf("\n");
 
