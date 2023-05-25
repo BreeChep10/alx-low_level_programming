@@ -36,7 +36,7 @@ void print_all(const char * const format, ...)
 	{
 		b = 0;
 
-		while (ops[b].f != NULL)
+		while (ops[b].c != NULL)
 		{
 			if (format[a] == *(ops[b].c))
 			{

@@ -8,7 +8,7 @@ void print_all(const char * const format, ...);
 
 #include <stdarg.h>
 /**
- * struct op - struct for 3
+ * struct print - struct for 3
  * @c: character to check
  * @f: function to point to
  */
