@@ -7,18 +7,15 @@ void print_strings(const char *separator, const unsigned int n, ...);
 void print_all(const char * const format, ...);
 
 #include <stdarg.h>
-
 /**
- * struct printer - Struct to print.
- * @temp: Pointer to the storage.
- *
- * @: Pointer function associated.
+ * struct op - struct for 3
+ * @c: character to check
+ * @f: function to point to
  */
-
-typedef struct printer
+typedef struct print
 {
-	const char *temp;
-	void (*f)(va_list);
-} printer_t;
+	char *c;
+	int (*f)(va_list args);
+} print_t;
 
 #endif

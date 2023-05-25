@@ -3,112 +3,111 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int print_character(va_list args);
+int print_integerN(va_list args);
+int print_string(va_list args);
+int print_floats(va_list args);
+
 /**
- * print_char - Function to print a character.
- * @args: The list of arguements pointing to the character.
+ * print_all - Function that prints all.
+ * @format: Coontains the list of aarguments.
  *
  * Return: void.
- */
-
-void print_char(va_list args)
-{
-	char character;
-
-	character = va_arg(args, int);
-	printf("%c", character);
-}
-
-/**
- * print_integer - Function that prints an integer.
- * @args: The list of arguements to be printed.
- *
- * Return: void.
- */
-
-void print_integer(va_list args)
-{
-	int nums;
-
-	nums = va_arg(args, int);
-	printf("%d", nums);
-}
-
-/**
- * print_float - Function that prints a float.
- * @args: A list of arguments to the float.
- *
- * Return: void.
- */
-
-void print_float(va_list args)
-{
-	double float_nums;
-
-	float_nums = va_arg(args, double);
-	printf("%f", float_nums);
-}
-
-/**
- * print_string - Function that prints a string.
- * @args: A list of arguements.
- *
- * Return: void.
- */
-
-void print_string(va_list args)
-{
-	char *string;
-
-	string = va_arg(args, char *);
-
-	if (string == NULL)
-	{
-		printf("(nil)");
-		return;
-	}
-	printf("%s", string);
-}
-
-/**
- * print_all - Function that prints anything.
- * @format: The list of arguements passed to the function.
- *
- * Return: Void
  */
 
 void print_all(const char * const format, ...)
 {
+	int a, b;
+	char *separator1 = "";
+	char *separator2 = ", ";
 	va_list all_args;
-	int i = 0, j = 0;
-	char *separator = "";
-	char *sep2 = ", ";
-	printer_t cases[] = {
-		{"c", print_char},
-		{"d", print_integer},
-		{"f", print_float},
+	print_t ops[] = {
+		{"c", print_character},
+		{"i", print_integerN},
 		{"s", print_string},
+		{"f", print_floats},
 		{NULL, NULL}
 	};
 
 	va_start(all_args, format);
+	a = 0;
 
-	while (format[i] != '\0')
+	while (format != NULL && format[a])
 	{
-		j = 0;
-		while (cases[j].temp != NULL && cases[j].f != NULL)
+		b = 0;
+
+		while (ops[b].f != NULL)
 		{
-			if (format[i] == *(cases[j].temp))
+			if (format[a] == *(ops[b].c))
 			{
-				printf("%s", separator);
-				cases[j].f(all_args);
-				separator = sep2;
-				break;
+				printf("%s", separator1);
+				ops[b].f(all_args);
 			}
-			j++;
+			b++;
 		}
-		i++;
+		separator1 = separator2;
+		a++;
 	}
 	printf("\n");
-
 	va_end(all_args);
+}
+/**
+ * print_character - Function that prints character.
+ * args: List of arguements.
+ *
+ * Return: 0 always.
+ */
+
+int print_character(va_list args)
+{
+	printf("%c", va_arg(args, int));
+	return (0);
+}
+
+/**
+ * print_integerN - Function that prints an ineteger.
+ * @args: Lists of arguements passed.
+ *
+ * Return: 0 always.
+ */
+
+int print_integerN(va_list args)
+{
+	printf("%d", va_arg(args, int));
+	return (0);
+}
+
+/**
+ * print_string - Function that prints a string.
+ * @args: List of arguements passed.
+ *
+ * Return: 0 always.
+ */
+
+int print_string(va_list args)
+{
+	char *s;
+
+	s = va_arg(args, char *);
+
+	if (s == NULL)
+	{
+		printf("(nil)");
+		return (0);
+	}
+	printf("%s", s);
+	return (0);
+}
+
+/**
+ * print_floats - Function that prints float numbers.
+ * args: Lists of arguements given.
+ *
+ * Return: Void
+ */
+
+int print_floats(va_list args)
+{
+	printf("%f", va_arg(args, double));
+	return (0);
 }
