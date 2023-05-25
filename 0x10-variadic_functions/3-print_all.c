@@ -36,7 +36,7 @@ void print_all(const char * const format, ...)
 	{
 		b = 0;
 
-		while (ops[b].c != NULL)
+		while (ops[b].f != NULL)
 		{
 			if (format[a] == *(ops[b].c))
 			{
@@ -53,7 +53,7 @@ void print_all(const char * const format, ...)
 }
 /**
  * print_character - Function that prints character.
- * args: List of arguements.
+ * @args: List of arguements.
  *
  * Return: 0 always.
  */
