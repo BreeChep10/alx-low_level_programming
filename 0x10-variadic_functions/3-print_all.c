@@ -42,7 +42,7 @@ void print_integer(va_list args)
 
 void print_float(va_list args)
 {
-	float float_nums;
+	double float_nums;
 
 	float_nums = va_arg(args, double);
 	printf("%f", float_nums);
@@ -81,28 +81,34 @@ void print_all(const char * const format, ...)
 	va_list all_args;
 	int i = 0, j = 0;
 	char *separator = "";
+	char *sep2 = ", ";
 	printer_t cases[] = {
 		{"c", print_char},
 		{"d", print_integer},
 		{"f", print_float},
-		{"s", print_string}
+		{"s", print_string},
+		{NULL, NULL}
 	};
 
 	va_start(all_args, format);
 
-	while (format && (*(format + i)))
+	while (format[i] != '\0')
 	{
 		j = 0;
-		while (j < 4 && (*(format + i) != *(cases[j].temp)))
-			j++;
-		if (j < 4)
+		while (cases[j].temp != NULL && cases[j].f != NULL)
 		{
-			printf("%s", separator);
-			cases[j].f(all_args);
-			separator = ", ";
+			if (format[i] == *(cases[j].temp))
+			{
+				printf("%s", separator);
+				cases[j].f(all_args);
+				separator = sep2;
+				break;
+			}
+			j++;
 		}
 		i++;
 	}
 	printf("\n");
+
 	va_end(all_args);
 }

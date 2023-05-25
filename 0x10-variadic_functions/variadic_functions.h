@@ -17,8 +17,8 @@ void print_all(const char * const format, ...);
 
 typedef struct printer
 {
-	char *temp;
-	void (*f)(va_list args);
+	const char *temp;
+	void (*f)(va_list);
 } printer_t;
 
 #endif
