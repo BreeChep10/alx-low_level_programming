@@ -7,6 +7,7 @@ A singly linked list is a data structure composed of nodes, where each node cont
 [0. Print list](0-print_list.c)
 
 Write a function that prints all the elements of a list_t list.
+[test file](0-main.c)
 
 	• Prototype: size_t print_list(const list_t *h);
 	• Return: the number of nodes
