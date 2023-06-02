@@ -7,7 +7,6 @@ A singly linked list is a data structure composed of nodes, where each node cont
 [0. Print list](0-print_list.c)
 
 Write a function that prints all the elements of a list_t list.
-[test file](0-main.c)
 
 	• Prototype: size_t print_list(const list_t *h);
 	• Return: the number of nodes
@@ -46,6 +45,12 @@ Write a function that frees a list_t list.
 	• Prototype: void free_list(list_t *head);
 
 [5. The Hare and the Tortoise](100-first.c)
+
+Write a function that prints You're beat! and yet, you must allow,\nI bore my house upon my back!\n before the main function is executed.
+
+	• You are allowed to use the printf function.
+
+[6. Real programmers can write assembly code in any language](101-hello_holberton.asm)
 
 Write a 64-bit program in assembly that prints Hello, Holberton, followed by a new line.
 
