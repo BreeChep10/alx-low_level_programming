@@ -1,8 +1,7 @@
 #include "lists.h"
 
 /**
- * list_len - Function that returns the no of elements in a linked list.
- * @list_t: This is our struct with the members.
+ * list_len - Function that returns the no of elements in a list..
  * @h: Pointer to the head of the linked list.
  *
  * Return: The number of elements in a linked list.
