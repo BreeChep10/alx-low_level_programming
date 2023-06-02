@@ -43,3 +43,11 @@ Write a function that adds a new node at the beginning of a list_t list.
 Write a function that frees a list_t list.
 
 	• Prototype: void free_list(list_t *head);
+
+[5. The Hare and the Tortoise](100-first.c)
+
+Write a 64-bit program in assembly that prints Hello, Holberton, followed by a new line.
+
+	• You are only allowed to use the printf function
+	• You are not allowed to use interrupts
+	• Your program will be compiled using nasm and gcc:
