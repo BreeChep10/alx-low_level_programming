@@ -1,9 +1,5 @@
 #include "lists.h"
 
-listadd_t *addNode_address(listadd_t **head, const listint_t *address);
-void free_listnew(listadd_t *head);
-
-
 /**
  * print_listint_safe - Function that prints a listint_t linked list.
  * @head: Pointer to the head of the linked list.

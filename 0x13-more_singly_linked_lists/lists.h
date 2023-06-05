@@ -44,4 +44,8 @@ typedef struct listadd_s
 	struct listadd_s *next;
 }listadd_t;
 
+listadd_t *addNode_address(listadd_t **head, const listint_t *address);
+void free_listnew(listadd_t *head);
+size_t free_listint_safe(listint_t **h);
+
 #endif
