@@ -2,7 +2,7 @@
 
 /**
  * reverse_listint - Function that prints the list in reverse.
- * @head: Pointer to the head of the list.
+ * @head: Pointer to the head of the  linked list.
  *
  * Return: The updated head address.
  */
