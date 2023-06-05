@@ -5,6 +5,10 @@ void free_listnew(listadd_t *head);
 
 
 /**
+ * print_listint_safe - Function that prints a listint_t linked list.
+ * @head: Pointer to the head of the linked list.
+ *
+ * Return: Returns the number of nodes in the list.
  */
 size_t print_listint_safe(const listint_t *head)
 {
@@ -18,7 +22,7 @@ size_t print_listint_safe(const listint_t *head)
 		ptr = newptr;
 		while (ptr)
 		{
-			if(head == ptr->address)
+			if (head == ptr->address)
 			{
 				printf("-> [%p] %d\n", (void *)head, head->n);
 				free_listnew(newptr);
@@ -35,6 +39,11 @@ size_t print_listint_safe(const listint_t *head)
 	return (count);
 }
 /**
+ * addNode_address - Function that adds a node to the list with
+ * @head: The first member of the list.
+ * @address: Address of another list's node.
+ *
+ * Return: The address of the new node, NULL if it fails.
  */
 
 listadd_t *addNode_address(listadd_t **head, const listint_t *address)
@@ -54,6 +63,10 @@ listadd_t *addNode_address(listadd_t **head, const listint_t *address)
 }
 
 /**
+ * free_listnew - Function that frees a list.
+ * @head: Pointer to the head of the linked list.
+ *
+ * Return: Void.
  */
 
 void free_listnew(listadd_t *head)
