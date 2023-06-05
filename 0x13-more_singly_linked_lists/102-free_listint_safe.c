@@ -22,7 +22,7 @@ size_t free_listint_safe(listint_t **h)
 			ptr = headadd;
 			while (ptr)
 			{
-				if (current == ptr->address)
+				if (current == (listint_t *)ptr->address)
 				{
 					free(current);
 					free_listnew(headadd);
