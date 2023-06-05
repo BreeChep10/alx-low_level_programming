@@ -31,6 +31,17 @@ int sum_listint(listint_t *head);
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n);
 int delete_nodeint_at_index(listint_t **head, unsigned int index);
 listint_t *reverse_listint(listint_t **head);
+size_t print_listint_safe(const listint_t *head);
 
+/**
+ * struct listadd_s - New struct.
+ * @address: Adress of the node.
+ * @next: Pointer to the next node.
+ */
+typedef struct listadd_s
+{
+	void *address;
+	struct listadd_s *next;
+}listadd_t;
 
 #endif
