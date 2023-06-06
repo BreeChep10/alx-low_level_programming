@@ -1,6 +1,10 @@
 #include "lists.h"
 
 /**
+ * free_listint_safe - Funnction that frees a linked list safely.
+ * @h: Pointer to the head of the linked list.
+ *
+ * Return: The number of nodes freed.
  */
 
 size_t free_listint_safe(listint_t **h)
