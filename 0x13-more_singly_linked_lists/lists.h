@@ -42,7 +42,7 @@ typedef struct listadd_s
 {
 	void *address;
 	struct listadd_s *next;
-}listadd_t;
+} listadd_t;
 
 listadd_t *addNode_address(listadd_t **head, const listint_t *address);
 void free_listnew(listadd_t *head);
