@@ -3,15 +3,15 @@
 > Bit manipulation is the act of algorithmically manipulating bits or other pieces of data shorter than a byte.
 > C language is very efficient in manipulating bits.
 
-## concertion of bitwise operations.
+## Convertion of bitwise operations.
 
 | A | B | A or B | A & B | A ^ B | A ~ |
-----------------------------------------
-| 0 | 0 | 0      | 0     | 0     | 1   |
-| 0 | 1 | 1      | 0     | 1     | 1   |
-| 1 | 0 | 1      | 0     | 1     | 0   |
-| 1 | 1 | 1      | 1     | 0     | 0   |
-----------------------------------------
+---- --- -------- ------- ------- ------
+| 0 | 0 | 0 | 0 | 0 | 1 |
+| 0 | 1 | 1 | 0 | 1 | 1 |
+| 1 | 0 | 1 | 0 | 1 | 0 |
+| 1 | 1 | 1 | 1 | 0 | 0 |
+--- --- --- --- --- ---
 
 ## TASKS
 
