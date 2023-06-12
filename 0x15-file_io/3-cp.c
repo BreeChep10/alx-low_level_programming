@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
 	buffer = create_buffer(argv[2]);
 	fd_from = open(argv[1], O_RDONLY);
 	num_r = read(fd_from, buffer, 1024);
-	fd_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, permissions);
+	fd_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC | O_APPEND, permissions);
 
 	do {
 		if (fd_from == -1 || num_r == -1)
