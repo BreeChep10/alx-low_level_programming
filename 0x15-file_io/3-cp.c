@@ -33,14 +33,14 @@ int main(int argc, char *argv[])
 		num_w = write(fd_to, buffer, num_r);
 		if (fd_to == -1 || num_w == -1)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", argv[2]);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			free(buffer);
 			exit(99);
 		}
 		num_r = read(fd_from, buffer, 1024);
 		fd_to = open(argv[2], O_WRONLY | O_APPEND);
 	} while (num_r > 0);
-	
+
 	free(buffer);
 	close_file(fd_from);
 	close_file(fd_to);
