@@ -24,7 +24,8 @@ int main(int argc, char *argv[])
 	num_r = read(fd_from, buffer, 1024);
 	fd_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, permissions);
 
-	do {
+	while (num_r > 0)
+	{
 		if (fd_from == -1 || num_r == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
@@ -40,7 +41,7 @@ int main(int argc, char *argv[])
 		}
 		num_r = read(fd_from, buffer, 1024);
 		fd_to = open(argv[2], O_WRONLY | O_APPEND);
-	} while (num_r > 0);
+	}
 
 	free(buffer);
 	close_file(fd_from);
