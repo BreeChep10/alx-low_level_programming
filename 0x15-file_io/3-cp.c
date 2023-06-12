@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
 	fd_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC | O_APPEND, permissions);
 
 	do {
-		if (fd_from == -1 || num_r == -1)
+		if (fd_from == -1 || num_r < 0)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 			free(buffer);
@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
 		}
 		num_r = read(fd_from, buffer, 1024);
 		fd_to = open(argv[2], O_WRONLY | O_APPEND);
-	} while (num_r > 0);
+	} while (num_r > 0 && num_w > 0);
 	free(buffer);
 	close_file(fd_from);
 	close_file(fd_to);
@@ -82,7 +82,7 @@ char *create_buffer(char *newfile)
 
 	if (!buffer)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", newfile);
+		dprintf(STDERR_FILENO, "Error: Can't allocate buffer for %s\n", newfile);
 		exit(99);
 	}
 	return (buffer);
