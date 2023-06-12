@@ -12,7 +12,6 @@ int main(int argc, char *argv[])
 {
 	int fd_from, fd_to, num_r, num_w;
 	char *buffer;
-	mode_t permissions = S_IRUSR | S_IWUSR;
 
 	if (argc != 3)
 	{
@@ -22,7 +21,7 @@ int main(int argc, char *argv[])
 	buffer = create_buffer(argv[2]);
 	fd_from = open(argv[1], O_RDONLY);
 	num_r = read(fd_from, buffer, 1024);
-	fd_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, permissions);
+	fd_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
 	do {
 		if (fd_from == -1 || num_r == -1)
@@ -79,7 +78,7 @@ char *create_buffer(char *newfile)
 
 	if (!buffer)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", newfile);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", newfile);
 		exit(99);
 	}
 	return (buffer);
