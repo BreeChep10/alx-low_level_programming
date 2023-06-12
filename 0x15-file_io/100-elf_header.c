@@ -186,6 +186,7 @@ void printABI(unsigned char *ident)
 
 /**
  * printType - Function that prints the Type of an eld header file.
+ * @type: file descriptor tupe.
  * @ident: Pointer to an array of the elf version.
  *
  * Return: Void.
@@ -220,6 +221,7 @@ void printType(unsigned int type, unsigned char *ident)
 
 /**
  * printEntry - Function that prints Entry of an elf header file.
+ * @entry: Number of entries made.
  * @ident: Pointer to an array of the elf version.
  *
  * Return: Void.
@@ -259,10 +261,9 @@ void closeElf(int fileDescriptor)
 }
 
 /**
- * main: Entry point of the program.
- * Description: If the file is not an ELF file or the function
- * exits, its exits with code 98.
- *
+ * main - Entry point of the program.
+ * Description: If the file is not an ELF file return error.
+ * .
  * @argc: Arguement count.
  * @argv: Pointer to an array of arguements entered at runtime.
  *
