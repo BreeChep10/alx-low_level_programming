@@ -19,28 +19,39 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	buffer = create_buffer(argv[2]);
+	buffer = create_buffer();
 	fd_from = open(argv[1], O_RDONLY);
-	num_r = read(fd_from, buffer, 1024);
-	fd_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC | O_APPEND, permissions);
+	if (fd_from == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		free(buffer);
+		exit(98);
+	}
+	fd_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, permissions);
 
-	do {
-		if (fd_from == -1 || num_r < 0)
+	if (fd_to == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", argv[2]);
+		free(buffer);
+		exit(99);
+	}
+	while ((num_r = read(fd_from, buffer, 1024)) > 0)
+	{
+		num_w = write(fd_to, buffer, num_r);
+		if (num_w != num_r)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+			dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", argv[2]);
 			free(buffer);
 			exit(98);
 		}
-		num_w = write(fd_to, buffer, num_r);
-		if (fd_to == -1 || num_w == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-			free(buffer);
-			exit(99);
-		}
-		num_r = read(fd_from, buffer, 1024);
-		fd_to = open(argv[2], O_WRONLY | O_APPEND);
-	} while (num_r > 0 && num_w > 0);
+	}
+	if (num_r == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		free(buffer);
+		exit(98);
+	}
+
 	free(buffer);
 	close_file(fd_from);
 	close_file(fd_to);
@@ -56,11 +67,7 @@ int main(int argc, char *argv[])
 
 void close_file(int fd)
 {
-	int a;
-
-	a = close(fd);
-
-	if (a == -1)
+	if (close(fd) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
 		exit(100);
@@ -74,7 +81,7 @@ void close_file(int fd)
  * Return: Pointer to the new buffer whose memory has been allocated.
  */
 
-char *create_buffer(char *newfile)
+char *create_buffer(void)
 {
 	char *buffer;
 
@@ -82,7 +89,7 @@ char *create_buffer(char *newfile)
 
 	if (!buffer)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't allocate buffer for %s\n", newfile);
+		dprintf(STDERR_FILENO, "Error: Can't allocate buffer\n");
 		exit(99);
 	}
 	return (buffer);
