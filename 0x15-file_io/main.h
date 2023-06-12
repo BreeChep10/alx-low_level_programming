@@ -14,5 +14,15 @@ int create_file(const char *filename, char *text_content);
 int append_text_to_file(const char *filename, char *text_content);
 char *create_buffer(char *newfile);
 void close_file(int fd);
+void checkElf(unsigned char *ident);
+void printMagic(unsigned char *ident);
+void printClass(unsigned char *ident);
+void printData(unsigned char *ident);
+void printVersion(unsigned char *ident);
+void printOSABI(unsigned char *ident);
+void printABI(unsigned char *ident);
+void printType(unsigned int type, unsigned char *ident);
+void printEntry(unsigned long int entry, unsigned char *ident);
+void closeElf(int fileDescriptor);
 
 #endif/*main.h*/

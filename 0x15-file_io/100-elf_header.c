@@ -1,25 +1,16 @@
-#include <elf.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include "main.h"
 
-void checkElf(unsigned char *ident);
-void printMagic(unsigned char *ident);
-void printClass(unsigned char *ident);
-void printData(unsigned char *ident);
-void printVersion(unsigned char *ident);
-void printOSABI(unsigned char *ident);
-void printABI(unsigned char *ident);
-void printType(unsigned int type, unsigned char *ident);
-void printEntry(unsigned long int entry, unsigned char *ident);
-void closeElf(int fileDescriptor);
+/**
+ * checkElf - Function that checks an elf file.
+ * @ident: Pointer to the file.
+ *
+ * Return: Void.
+ */
 
 void checkElf(unsigned char *ident)
 {
 	int index;
+
 	for (index = 0; index < 4; index++)
 	{
 		if (ident[index] != 127 &&
@@ -33,9 +24,17 @@ void checkElf(unsigned char *ident)
 	}
 }
 
+/**
+ * printMagic - Function that prints information on magic.
+ * @ident: Poiner to the file.
+ *
+ * Return: Void.
+ */
+
 void printMagic(unsigned char *ident)
 {
 	int index;
+
 	printf("  Magic:   ");
 	for (index = 0; index < EI_NIDENT; index++)
 	{
@@ -47,9 +46,17 @@ void printMagic(unsigned char *ident)
 	}
 }
 
+/**
+ * printClass - Function that prints info on class.
+ * @ident: A pointer to an array containing the ELF class.
+ *
+ * Return: Void.
+ */
+
 void printClass(unsigned char *ident)
 {
 	printf("  Class:                             ");
+
 	switch (ident[EI_CLASS])
 	{
 	case ELFCLASSNONE:
@@ -66,9 +73,17 @@ void printClass(unsigned char *ident)
 	}
 }
 
+/**
+ * printData - Function that prints the data of an ELF header.
+ * @ident: A pointer to an array containing ELF class.
+ *
+ * Return: Void.
+ */
+
 void printData(unsigned char *ident)
 {
 	printf("  Data:                              ");
+
 	switch (ident[EI_DATA])
 	{
 	case ELFDATANONE:
@@ -85,6 +100,13 @@ void printData(unsigned char *ident)
 	}
 }
 
+/**
+ * printVersion - Function that prints the version of an ELF header.
+ * @ident: A pointer to an array containing the ELF version
+ *
+ * Return: Void.
+ */
+
 void printVersion(unsigned char *ident)
 {
 	printf("  Version:                           %d",
@@ -100,9 +122,18 @@ void printVersion(unsigned char *ident)
 	}
 }
 
+/**
+ * printOSABI - Function that prints the OSABI of the ELF header.
+ * file.
+ * @ident: Poiinter to an array containing the elf file.
+ *
+ * Return: Void.
+ */
+
 void printOSABI(unsigned char *ident)
 {
 	printf("  OS/ABI:                            ");
+
 	switch (ident[EI_OSABI])
 	{
 	case ELFOSABI_NONE:
@@ -127,8 +158,8 @@ void printOSABI(unsigned char *ident)
 		printf("UNIX - FreeBSD\n");
 		break;
 	case ELFOSABI_TRU64:
-	    printf("UNIX - TRU64\n");
-	    break;
+		printf("UNIX - TRU64\n");
+		break;
 	case ELFOSABI_ARM:
 		printf("ARM\n");
 		break;
@@ -140,11 +171,25 @@ void printOSABI(unsigned char *ident)
 	}
 }
 
+/**
+ * printABI - Function that prints the ABI of an elf header file.
+ * @ident: Pointer to an array of an elf header file.
+ *
+ * Return: Void.
+ */
+
 void printABI(unsigned char *ident)
 {
 	printf("  ABI Version:                       %d\n",
-           ident[EI_ABIVERSION]);
+			ident[EI_ABIVERSION]);
 }
+
+/**
+ * printType - Function that prints the Type of an eld header file.
+ * @ident: Pointer to an array of the elf version.
+ *
+ * Return: Void.
+ */
 
 void printType(unsigned int type, unsigned char *ident)
 {
@@ -173,9 +218,17 @@ void printType(unsigned int type, unsigned char *ident)
 	}
 }
 
+/**
+ * printEntry - Function that prints Entry of an elf header file.
+ * @ident: Pointer to an array of the elf version.
+ *
+ * Return: Void.
+ */
+
 void printEntry(unsigned long int entry, unsigned char *ident)
 {
 	printf("  Entry point address:               ");
+
 	if (ident[EI_DATA] == ELFDATA2MSB)
 	{
 		entry = ((entry << 8) & 0xFF00FF00) |
@@ -188,6 +241,13 @@ void printEntry(unsigned long int entry, unsigned char *ident)
 		printf("%#lx\n", entry);
 }
 
+/**
+ * closeElf - Function that closes an elf file.
+ * @fileDescriptor: File descriptions of type int.
+ *
+ * Return: void.
+ */
+
 void closeElf(int fileDescriptor)
 {
 	if (close(fileDescriptor) == -1)
@@ -198,10 +258,22 @@ void closeElf(int fileDescriptor)
 	}
 }
 
+/**
+ * main: Entry point of the program.
+ * Description: If the file is not an ELF file or the function
+ * exits, its exits with code 98.
+ *
+ * @argc: Arguement count.
+ * @argv: Pointer to an array of arguements entered at runtime.
+ *
+ * Return: 0 on success.
+ */
+
 int main(int argc __attribute__ ((unused)), char *argv[])
 {
 	Elf64_Ehdr *header;
 	int file, readResult;
+
 	file = open(argv[1], O_RDONLY);
 	if (file == -1)
 	{
