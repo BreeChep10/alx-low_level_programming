@@ -1,8 +1,8 @@
-#0x10-variadic_functions
+# 0x10-variadic_functions
 
-In mathematics and in computer programming, a variadic function is a function of indefinite arity, i.e., one which accepts a variable number of arguments. Support for variadic functions differs widely among programming languages.
+> In mathematics and in computer programming, a variadic function is a function of indefinite arity, i.e., one which accepts a variable number of arguments. Support for variadic functions differs widely among programming languages.
 
-##TASKS.
+## TASKS.
 
 [0. Beauty is variable, ugliness is constant](0-sum_them_all.c)
 
