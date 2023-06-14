@@ -1,4 +1,6 @@
-In this repository. C programming is practiced and projects bult on different c concepts.
+# alx-low_level_programming
+
+> In this repository. C programming is practiced and projects bult on different c concepts.
 
 Low-level programming in C refers to programming at the machine level or very close to it. It involves the use of programming constructs such as pointers, memory allocation, and bitwise operators, which allow developers to interact directly with the computer's hardware and memory.
 
