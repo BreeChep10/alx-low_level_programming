@@ -4,7 +4,7 @@
 
 ![Cool gif](https://media4.giphy.com/media/cIn5fTcjnKhStIeAef/200.webp?cid=ecf05e476qxuwvglbdrqjf4t8fnnssfwrqlox5x3bzsnx67r&ep=v1_stickers_search&rid=200.webp&ct=s)
 
-## Overview :eyes::computer:
+## Overview :eyes::book:
 
 > Low-level programming in C refers to programming at the machine level or very close to it. It involves the use of programming constructs such as pointers, memory allocation, and bitwise operators, which allow developers to interact directly with the computer's hardware and memory.
 > In summary, low-level programming in C involves working closely with the computer's hardware and memory, and requires a solid understanding of C programming, data structures, algorithms, and computer architecture.
