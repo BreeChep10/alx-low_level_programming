@@ -14,7 +14,7 @@ A good understanding of data structures and algorithms is also essential for low
 
 In summary, low-level programming in C involves working closely with the computer's hardware and memory, and requires a solid understanding of C programming, data structures, algorithms, and computer architecture.
 
-### PROJECTS:
+### PROJECTS: :construction:
 
 • [0x00-hello_world](0x00-hello_world)
 
