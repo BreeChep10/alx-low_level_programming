@@ -2,6 +2,14 @@
 #include <stdlib.h>
 #include <string.h>
 
+/**
+ * main - The entry point for the program.
+ * @argc: The number of arguements.
+ * @argv: An array of arguements entered.
+ *
+ * Return: 0 upon success.
+ */
+
 int main(int __attribute__((__unused__)) argc, char *argv[])
 {
 	char generated_password[7], *codex;
