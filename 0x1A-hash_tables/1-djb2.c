@@ -17,5 +17,5 @@ unsigned long int hash_djb2(const unsigned char *str)
 		/* DJB2 hash algorithm: hash = hash * 33 + c */
 		hash = ((hash << 5) + hash) + c;
 	}
-	return hash;
+	return (hash);
 }
